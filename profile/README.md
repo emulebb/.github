@@ -1,7 +1,7 @@
 # eMule BB
 
 eMule BB is a power-user eMule built for modern Windows, fast connections,
-large Linux ISO libraries, and serious local automation.
+large file libraries, and serious local automation.
 
 It keeps the familiar stock eD2K/Kad protocol and classic eMule workflow:
 servers, Kad search, shared files, upload queues, categories, known clients,
@@ -18,7 +18,7 @@ eMule BB is for users who still value the classic eMule model, but run it on
 modern machines:
 
 - high-bandwidth upload links
-- large Linux ISO sharing libraries
+- large shared file libraries
 - long path Windows filesystems
 - always-on desktop sessions
 - local controllers and automation
@@ -26,11 +26,11 @@ modern machines:
 - reproducible release validation instead of guesswork
 
 The goal is to keep the stock eD2K/Kad experience useful, controllable, and
-trustworthy on current systems.
+trustworthy on current systems, Linux ISOs included.
 
 ## What It Focuses On
 
-### Broadband Linux ISO Sharing
+### Broadband Sharing
 
 eMule BB improves upload and queue behavior for modern broadband use: bounded
 upload slot behavior, better queue control, weak-slot recycling, modern defaults,
@@ -40,7 +40,7 @@ and sharing controls that make sense for fast connections.
 
 The project has active work around safer shared-file handling, recursive share
 sync, startup cache behavior, long-path support, stable sorting, and UI
-responsiveness with larger Linux ISO collections.
+responsiveness with larger file collections.
 
 ### Automation And REST Control
 
