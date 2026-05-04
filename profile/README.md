@@ -1,40 +1,98 @@
 # eMule BB
 
-eMule BB is an independently versioned broadband-focused eD2K/Kad client.
+eMule BB is a power-user eMule built for modern Windows, fast connections,
+large Linux ISO libraries, and serious local automation.
 
-The goal is straightforward: carry the classic eMule workflow forward as its
-own product for modern Windows while preserving compatibility with the community
-network. The project focuses on careful maintenance, safer persistence, better
-high-speed sharing behavior, stronger test coverage, and practical local
-automation through the WebServer REST API.
+It keeps the familiar stock eD2K/Kad protocol and classic eMule workflow:
+servers, Kad search, shared files, upload queues, categories, known clients,
+and long-running desktop control. Then it pushes that foundation forward with
+broadband-aware behavior, safer persistence, a real REST API, reproducible
+builds, and live end-to-end testing.
 
-## Mission
+This is no longer just a patched historical branch. eMule BB is its own product,
+with its own versioning, release process, roadmap, and compatibility goals.
 
-- Maintain eMule BB as its own product with its own release versioning.
-- Preserve eD2K and Kad interoperability unless a change is explicitly scoped.
-- Improve broadband-era defaults, sharing controls, and queue behavior.
-- Keep release engineering reproducible through a scripted multi-repo workspace.
-- Make REST, live E2E testing, and controller integration first-class release
-  gates.
+## Why eMule BB Exists
 
-## Primary Repositories
+eMule BB is for users who still value the classic eMule model, but run it on
+modern machines:
 
-- [`eMule`](https://github.com/eMulebb/eMule) - application source and release branches
-- [`eMulebb-setup`](https://github.com/eMulebb/eMulebb-setup) - workspace materialization
-- [`eMule-build`](https://github.com/eMulebb/eMule-build) - build and validation orchestration
-- [`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests) - native, Python, UI, REST, and live E2E harnesses
-- [`eMule-tooling`](https://github.com/eMulebb/eMule-tooling) - workspace policy, backlog, audits, and reference docs
+- high-bandwidth upload links
+- large Linux ISO sharing libraries
+- long path Windows filesystems
+- always-on desktop sessions
+- local controllers and automation
+- Arr/aMuTorrent-style integration
+- reproducible release validation instead of guesswork
 
-## Current Focus
+The goal is to keep the stock eD2K/Kad experience useful, controllable, and
+trustworthy on current systems.
+
+## What It Focuses On
+
+### Broadband Linux ISO Sharing
+
+eMule BB improves upload and queue behavior for modern broadband use: bounded
+upload slot behavior, better queue control, weak-slot recycling, modern defaults,
+and sharing controls that make sense for fast connections.
+
+### Large Library Handling
+
+The project has active work around safer shared-file handling, recursive share
+sync, startup cache behavior, long-path support, stable sorting, and UI
+responsiveness with larger Linux ISO collections.
+
+### Automation And REST Control
+
+eMule BB includes an authenticated JSON REST API under the existing WebServer
+surface. It is designed for trusted local controllers and companion tools that
+need to inspect transfers, manage searches, control servers/Kad, read status,
+and integrate eMule into a larger local workflow.
+
+### Arr And Controller Integration
+
+The release track includes live testing around Prowlarr, Radarr, Sonarr, and
+aMuTorrent-style workflows. The goal is practical integration: search, add,
+observe, and control from modern tools without giving up the native desktop app.
+
+### Safer Long-Running Operation
+
+A lot of the work is not flashy, and that is the point: safer file persistence,
+better shutdown behavior, reduced stale UI pointers, stronger WebServer
+hardening, tighter validation, and fewer silent failure paths.
+
+### Release-Grade Testing
+
+eMule BB is built around a multi-repo validation workspace with native tests,
+Python tests, UI automation, REST smoke tests, live eD2K/Kad scenarios, and
+live-wire coverage. Releases should be proven, not just compiled.
+
+## Current Release Focus
 
 - Broadband release stabilization.
 - REST API completeness and typed error behavior.
 - Live E2E coverage for UI, REST, eD2K/Kad, and Arr integration.
-- User-facing release guides and cleaner public documentation.
+- Transfer detail and controller parity for companion apps.
+- Cleaner user-facing guides for setup, use, automation, and troubleshooting.
+
+## Primary Repositories
+
+- [`eMule`](https://github.com/eMulebb/eMule) - the desktop app and product source
+- [`eMulebb-setup`](https://github.com/eMulebb/eMulebb-setup) - reproducible workspace setup
+- [`eMule-build`](https://github.com/eMulebb/eMule-build) - build, validation, and release orchestration
+- [`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests) - native, Python, UI, REST, and live E2E tests
+- [`eMule-tooling`](https://github.com/eMulebb/eMule-tooling) - roadmap, backlog, policy, audits, and reference docs
 
 ## Project Principles
 
-- Compatibility first.
-- Small reviewed changes over broad rewrites.
-- Reproducible workspace setup over machine-local assumptions.
-- Tests and live proof before expanding release scope.
+- Keep stock eD2K/Kad protocol compatibility as the default.
+- Prefer practical improvements over rewrite fantasies.
+- Make power-user features observable, testable, and documented.
+- Treat REST and controller support as product features, not side experiments.
+- Prove behavior with automated and live testing before calling it release-ready.
+
+## Status
+
+eMule BB is under active pre-release development. The repositories are public so
+the roadmap, release engineering, and compatibility work can be followed as the
+project becomes its own product.
