@@ -1,16 +1,16 @@
 # eMule BB
 
-eMule BB is a maintained broadband-focused release line for eMule 0.72a.
+eMule BB is an independently versioned broadband-focused eD2K/Kad client.
 
-The goal is straightforward: keep the classic eD2K/Kad desktop client useful on
-modern Windows while preserving compatibility with the community network. The
-project focuses on careful maintenance, safer persistence, better high-speed
-sharing behavior, stronger test coverage, and practical local automation through
-the WebServer REST API.
+The goal is straightforward: carry the classic eMule workflow forward as its
+own product for modern Windows while preserving compatibility with the community
+network. The project focuses on careful maintenance, safer persistence, better
+high-speed sharing behavior, stronger test coverage, and practical local
+automation through the WebServer REST API.
 
 ## Mission
 
-- Maintain a stable eMule 0.72a-based client for current Windows systems.
+- Maintain eMule BB as its own product with its own release versioning.
 - Preserve eD2K and Kad interoperability unless a change is explicitly scoped.
 - Improve broadband-era defaults, sharing controls, and queue behavior.
 - Keep release engineering reproducible through a scripted multi-repo workspace.
@@ -38,4 +38,3 @@ the WebServer REST API.
 - Small reviewed changes over broad rewrites.
 - Reproducible workspace setup over machine-local assumptions.
 - Tests and live proof before expanding release scope.
-
