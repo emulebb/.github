@@ -1,7 +1,8 @@
-# eMule BB
+# eMule broadband edition
 
-eMule BB is a power-user eMule built for modern Windows, fast connections,
-large file libraries, and serious local automation.
+eMule broadband edition, compactly known as eMule BB, is a power-user eMule
+built for modern Windows, fast connections, large file libraries, and serious
+local automation.
 
 It keeps the familiar stock eD2K/Kad protocol and classic eMule workflow:
 servers, Kad search, shared files, upload queues, categories, known clients,
@@ -9,8 +10,9 @@ and long-running desktop control. Then it pushes that foundation forward with
 broadband-aware behavior, safer persistence, a real REST API, reproducible
 builds, and live end-to-end testing.
 
-This is no longer just a patched historical branch. eMule BB is its own product,
-with its own versioning, release process, roadmap, and compatibility goals.
+This is no longer just a patched historical branch. eMule broadband edition is
+its own product, with its own versioning, release process, roadmap, and
+compatibility goals.
 
 ## Why eMule BB Exists
 
