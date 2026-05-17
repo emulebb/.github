@@ -23,6 +23,13 @@ The first beta release line is planned as **0.7.3**. It is **not yet released**.
 | User docs | [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
 | Release status | [`0.7.3 dashboard`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
 
+## Start Here
+
+- New users: read the [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) and [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md).
+- Developers: start from [`eMule`](https://github.com/eMulebb/eMule) and the [`eMule-build`](https://github.com/eMulebb/eMule-build) orchestration repo.
+- Controller authors: use the [`REST API contract`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
+- Community discussion: join [`Discord`](https://discord.gg/uWQa9g37).
+
 ## Capability Highlights
 
 ### Network Binding And VPN-Aware Operation
