@@ -40,6 +40,15 @@ The first beta release line is planned as **0.7.3**. It is **not yet released**.
 - Controller authors: use the [`REST API contract`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
 - Community discussion: join [`Discord`](https://discord.gg/uWQa9g37).
 
+## What eMule BB Adds
+
+- Broadband-aware upload slots and queue controls for faster modern links.
+- Safer operation with large shared libraries and long-running desktop sessions.
+- VPN/interface binding, UPnP/NAT, and WebServer exposure behavior kept under test.
+- Authenticated REST automation for trusted local controllers and Arr-style adapters.
+- Kad, peer, WebServer, and malformed-request hardening without protocol drift.
+- Release evidence that covers native tests, UI automation, REST checks, and live eD2K/Kad scenarios.
+
 ## Capability Highlights
 
 ### Network Binding And VPN-Aware Operation
