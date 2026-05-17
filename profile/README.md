@@ -13,6 +13,16 @@ fork.
 
 The first beta release line is planned as **0.7.3**. It is **not yet released**.
 
+## At A Glance
+
+| Area | Current public status |
+| --- | --- |
+| Release | First beta line `0.7.3`, planned and not yet released |
+| Platform | Windows desktop client, with x64 and ARM64 package proof in scope |
+| Network | Stock-compatible eD2K and Kad behavior remains the default |
+| Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
+| Focus | Broadband upload control, large libraries, controller integration, and release evidence |
+
 ## Quick Links
 
 | Start here | Link |
