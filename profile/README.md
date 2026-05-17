@@ -12,6 +12,16 @@ release validation that can be inspected.
 
 The first beta release line is planned as **0.7.3**. It is **not yet released**.
 
+## Quick Links
+
+| Start here | Link |
+| --- | --- |
+| Website | [`emulebb.github.io`](https://emulebb.github.io/) |
+| Community | [`Discord`](https://discord.gg/uWQa9g37) |
+| Source | [`eMule`](https://github.com/eMulebb/eMule) |
+| User docs | [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
+| Release status | [`0.7.3 dashboard`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
+
 ## Capability Highlights
 
 ### Network Binding And VPN-Aware Operation
