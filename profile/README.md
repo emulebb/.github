@@ -54,12 +54,13 @@ eD2K/Kad compatibility as the boundary.
 | Community | [`Discord`](https://discord.gg/uWQa9g37) |
 | Source | [`eMule`](https://github.com/eMulebb/eMule) |
 | User docs | [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
+| Developer docs | [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) |
 | Release status | [`0.7.3 dashboard`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
 
 ## Start Here
 
 - New users: read the [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) and [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md).
-- Developers: start from [`eMule`](https://github.com/eMulebb/eMule) and the [`eMule-build`](https://github.com/eMulebb/eMule-build) orchestration repo.
+- Developers: start from [`eMule`](https://github.com/eMulebb/eMule), the [`eMule-build`](https://github.com/eMulebb/eMule-build) orchestration repo, and the [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md).
 - Controller authors: use the [`REST API contract`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
 - Community discussion: join [`Discord`](https://discord.gg/uWQa9g37).
 
@@ -184,6 +185,7 @@ Start with the public site and the maintained source docs:
 - [`emulebb.github.io`](https://emulebb.github.io/) - concise product overview and guide links
 - [`Discord`](https://discord.gg/uWQa9g37) - community chat and project discussion
 - [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) - setup, tuning, automation, and release-aware use
+- [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) - build, validation, CI, packaging, command-line, and recurring guide-refresh workflow
 - [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md) - install model, first-run profile behavior, and startup notes
 - [`Network guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-NETWORK.md) - eD2K, Kad, binding, UPnP, firewall, and diagnosis
 - [`Sharing guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SHARING.md) - shared directories, monitored shares, large libraries, and policy files
