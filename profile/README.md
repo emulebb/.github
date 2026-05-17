@@ -23,19 +23,28 @@ The first beta release line is planned as **0.7.3**. It is **not yet released**.
 | Platform | Windows desktop client, with x64 and ARM64 package proof in scope |
 | Network | Stock-compatible eD2K and Kad behavior remains the default |
 | Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
-| Focus | Broadband upload control, large libraries, controller integration, and release evidence |
+| Focus | Broadband upload control, large libraries, automated testing, controller integration, and release evidence |
 
-## Automated Testing
+## Testing And Performance Proof
 
-The public fast lane now runs in GitHub Actions for every push and pull request
-to [`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests). It
-installs the shared Python harness and runs the default fast pytest suite, which
-excludes desktop-native and live-network tests.
+eMule BB is being built as a tested desktop product, not just a patched source
+tree. Public messaging stays tied to the same evidence model used for the beta
+release work: fast hosted CI, local native tests, REST/controller checks, UI and
+resource proof, live eD2K/Kad scenarios, package provenance, and explicit
+operator gates.
 
-The broader release proof is larger than the hosted CI lane: it includes native
-doctest coverage, REST contract and smoke checks, UI automation, protocol
-parity/live-diff, live eD2K/Kad scenarios, and Arr/aMuTorrent integration
-validation through the workspace orchestration.
+The public fast lane runs in GitHub Actions for every push and pull request to
+[`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests). It installs
+the shared Python harness and runs the default fast pytest suite, while the full
+release campaign adds the desktop-native, live-network, controller, packaging,
+and language/resource checks that do not belong in a small hosted lane.
+
+Performance work is treated the same way: claims are tied to concrete operating
+surfaces such as broadband upload slots, modern queue/source/socket/file-buffer
+defaults, large shared-library startup behavior, long-path readiness, REST
+controller reliability, and x64/ARM64 package proof. The goal is practical
+throughput and responsiveness for long Windows sessions while keeping stock
+eD2K/Kad compatibility as the boundary.
 
 ## Quick Links
 
