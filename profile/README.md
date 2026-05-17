@@ -122,6 +122,7 @@ The workspace is built around evidence, not guesswork:
 Start with the public site and the maintained source docs:
 
 - [`emulebb.github.io`](https://emulebb.github.io/) - concise product overview and guide links
+- [`Discord`](https://discord.gg/uWQa9g37) - community chat and project discussion
 - [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) - setup, tuning, automation, and release-aware use
 - [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md) - install model, first-run profile behavior, and startup notes
 - [`Network guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-NETWORK.md) - eD2K, Kad, binding, UPnP, firewall, and diagnosis
