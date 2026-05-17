@@ -1,5 +1,7 @@
 # eMule broadband edition
 
+[![Fast Harness CI](https://github.com/eMulebb/eMule-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg)](https://github.com/eMulebb/eMule-build-tests/actions/workflows/fast-harness-ci.yml)
+
 eMule broadband edition, compactly known as eMule BB, is a modern Windows line
 of the classic eMule client for power users with fast upload links, large
 shared libraries, and trusted local automation.
@@ -22,6 +24,18 @@ The first beta release line is planned as **0.7.3**. It is **not yet released**.
 | Network | Stock-compatible eD2K and Kad behavior remains the default |
 | Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
 | Focus | Broadband upload control, large libraries, controller integration, and release evidence |
+
+## Automated Testing
+
+The public fast lane now runs in GitHub Actions for every push and pull request
+to [`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests). It
+installs the shared Python harness and runs the default fast pytest suite, which
+excludes desktop-native and live-network tests.
+
+The broader release proof is larger than the hosted CI lane: it includes native
+doctest coverage, REST contract and smoke checks, UI automation, protocol
+parity/live-diff, live eD2K/Kad scenarios, and Arr/aMuTorrent integration
+validation through the workspace orchestration.
 
 ## Quick Links
 
