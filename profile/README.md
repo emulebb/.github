@@ -50,8 +50,8 @@ source of truth.
 ### Windows P2P Builds
 
 We also provide Windows build and validation work for **aMule** and
-**MiniUPnP/miniupnpc**. Those are ecosystem builds and distribution artifacts;
-they are not claims of upstream project ownership.
+**MiniUPnP/miniupnpc**. Those are ecosystem builds and distribution artifacts
+for users who want these tools in the same Windows P2P workflow.
 
 ### P2P Lab Work
 
