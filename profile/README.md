@@ -1,6 +1,6 @@
 # eMule broadband edition
 
-[![Fast Harness CI](https://github.com/eMulebb/eMule-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg)](https://github.com/eMulebb/eMule-build-tests/actions/workflows/fast-harness-ci.yml)
+[![Fast Harness CI](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg)](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml)
 
 eMule broadband edition, compactly known as eMule BB, is a modern Windows line
 of the classic eMule client for power users with fast upload links, large
@@ -34,7 +34,7 @@ resource proof, live eD2K/Kad scenarios, package provenance, and explicit
 operator gates.
 
 The public fast lane runs in GitHub Actions for every push and pull request to
-[`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests). It installs
+[`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests). It installs
 the shared Python harness and runs the default fast pytest suite, while the full
 release campaign adds the desktop-native, live-network, controller, packaging,
 and language/resource checks that do not belong in a small hosted lane.
@@ -52,16 +52,16 @@ eD2K/Kad compatibility as the boundary.
 | --- | --- |
 | Website | [`emulebb.github.io`](https://emulebb.github.io/) |
 | Community | [`Discord`](https://discord.gg/uWQa9g37) |
-| Source | [`eMule`](https://github.com/eMulebb/eMule) |
-| User docs | [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
-| Developer docs | [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) |
-| Release status | [`0.7.3 dashboard`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
+| Source | [`emulebb`](https://github.com/emulebb/emulebb) |
+| User docs | [`Product guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
+| Developer docs | [`Development guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) |
+| Release status | [`0.7.3 dashboard`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
 
 ## Start Here
 
-- New users: read the [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) and [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md).
-- Developers: start from [`eMule`](https://github.com/eMulebb/eMule), the [`eMule-build`](https://github.com/eMulebb/eMule-build) orchestration repo, and the [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md).
-- Controller authors: use the [`REST API contract`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
+- New users: read the [`Product guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) and [`Setup guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-SETUP.md).
+- Developers: start from [`emulebb`](https://github.com/emulebb/emulebb), the [`emulebb-build`](https://github.com/emulebb/emulebb-build) orchestration repo, and the [`Development guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md).
+- Controller authors: use the [`REST API contract`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
 - Community discussion: join [`Discord`](https://discord.gg/uWQa9g37).
 
 ## What eMule BB Adds
@@ -184,25 +184,25 @@ Start with the public site and the maintained source docs:
 
 - [`emulebb.github.io`](https://emulebb.github.io/) - concise product overview and guide links
 - [`Discord`](https://discord.gg/uWQa9g37) - community chat and project discussion
-- [`Product guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) - setup, tuning, automation, and release-aware use
-- [`Development guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) - build, validation, CI, packaging, command-line, and recurring guide-refresh workflow
-- [`Setup guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SETUP.md) - install model, first-run profile behavior, and startup notes
-- [`Network guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-NETWORK.md) - eD2K, Kad, binding, UPnP, firewall, and diagnosis
-- [`Sharing guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-SHARING.md) - shared directories, monitored shares, large libraries, and policy files
-- [`Downloads and search guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-DOWNLOADS-SEARCH.md) - search modes, result trust, categories, and file workflows
-- [`Controllers and REST guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-CONTROLLERS-REST.md) - trusted local controllers and automation boundaries
-- [`REST API contract`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) - authenticated JSON control surface
-- [`REST adapter contracts`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/rest/REST-API-ADAPTERS.md) - qBittorrent-compatible and Torznab adapter surface
-- [`Troubleshooting guide`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/reference/GUIDE-TROUBLESHOOTING.md) - symptom-led checks for network, sharing, and automation issues
-- [`0.7.3 release dashboard`](https://github.com/eMulebb/eMule-tooling/blob/main/docs/active/RELEASE-0.7.3.md) - current planned beta gates, evidence, and readiness rules
+- [`Product guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) - setup, tuning, automation, and release-aware use
+- [`Development guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) - build, validation, CI, packaging, command-line, and recurring guide-refresh workflow
+- [`Setup guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-SETUP.md) - install model, first-run profile behavior, and startup notes
+- [`Network guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-NETWORK.md) - eD2K, Kad, binding, UPnP, firewall, and diagnosis
+- [`Sharing guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-SHARING.md) - shared directories, monitored shares, large libraries, and policy files
+- [`Downloads and search guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-DOWNLOADS-SEARCH.md) - search modes, result trust, categories, and file workflows
+- [`Controllers and REST guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-CONTROLLERS-REST.md) - trusted local controllers and automation boundaries
+- [`REST API contract`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) - authenticated JSON control surface
+- [`REST adapter contracts`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/rest/REST-API-ADAPTERS.md) - qBittorrent-compatible and Torznab adapter surface
+- [`Troubleshooting guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-TROUBLESHOOTING.md) - symptom-led checks for network, sharing, and automation issues
+- [`0.7.3 release dashboard`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/active/RELEASE-0.7.3.md) - current planned beta gates, evidence, and readiness rules
 
 ## Primary Repositories
 
-- [`eMule`](https://github.com/eMulebb/eMule) - desktop app and product source
-- [`eMulebb-setup`](https://github.com/eMulebb/eMulebb-setup) - reproducible workspace setup
-- [`eMule-build`](https://github.com/eMulebb/eMule-build) - build, validation, and release orchestration
-- [`eMule-build-tests`](https://github.com/eMulebb/eMule-build-tests) - native, Python, UI, REST, and live E2E tests
-- [`eMule-tooling`](https://github.com/eMulebb/eMule-tooling) - roadmap, backlog, policy, audits, and reference docs
+- [`emulebb`](https://github.com/emulebb/emulebb) - desktop app and product source
+- [`emulebb-setup`](https://github.com/emulebb/emulebbbb-setup) - reproducible workspace setup
+- [`emulebb-build`](https://github.com/emulebb/emulebb-build) - build, validation, and release orchestration
+- [`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests) - native, Python, UI, REST, and live E2E tests
+- [`emulebb-tooling`](https://github.com/emulebb/emulebb-tooling) - roadmap, backlog, policy, audits, and reference docs
 - [`emulebb.github.io`](https://emulebb.github.io/) - public product page
 
 ## Project Principles
