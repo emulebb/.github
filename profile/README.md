@@ -2,9 +2,13 @@
 
 [![Fast Harness CI](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg)](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml)
 
-eMule broadband edition, compactly known as eMule BB, is a modern Windows line
-of the classic eMule client for power users with fast upload links, large
-shared libraries, and trusted local automation.
+The `emulebb` organization builds eMuleBB, a modern broadband-focused edition
+of the classic eMule client, plus adjacent tools for testing, automation,
+servers, and P2P workflows around that ecosystem.
+
+eMule broadband edition, compactly known as eMuleBB, is a modern Windows line
+for power users with fast upload links, large shared libraries, and trusted
+local automation.
 
 It keeps the familiar stock eD2K/Kad protocol and desktop workflow: servers,
 Kad search, shared files, upload queues, categories, known clients, and
@@ -25,9 +29,21 @@ The first beta release line is planned as **0.7.3**. It is **not yet released**.
 | Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
 | Focus | Broadband upload control, large libraries, automated testing, controller integration, and release evidence |
 
+## eMuleBB Ecosystem
+
+eMuleBB is the anchor product. The surrounding repositories form the eMuleBB
+ecosystem: reproducible builds, shared test harnesses, public docs, ED2K server
+components, controller workflows, and adjacent headless P2P tools that can share
+contracts without becoming part of the desktop app.
+
+The goal is not to create an incompatible network fork or a generic P2P lab.
+The organization stays centered on practical broadband eMule use: desktop
+sharing, large libraries, upload behavior, Kad/eD2K compatibility, local
+automation, and evidence-backed releases.
+
 ## Testing And Performance Proof
 
-eMule BB is being built as a tested desktop product, not just a patched source
+eMuleBB is being built as a tested desktop product, not just a patched source
 tree. Public messaging stays tied to the same evidence model used for the beta
 release work: fast hosted CI, local native tests, REST/controller checks, UI and
 resource proof, live eD2K/Kad scenarios, package provenance, and explicit
@@ -64,7 +80,7 @@ eD2K/Kad compatibility as the boundary.
 - Controller authors: use the [`REST API contract`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/rest/REST-API-CONTRACT.md) and adapter contracts.
 - Community discussion: join [`Discord`](https://discord.gg/uWQa9g37).
 
-## What eMule BB Adds
+## What eMuleBB Adds
 
 - Broadband-aware upload slots and queue controls for faster modern links.
 - Safer operation with large shared libraries and long-running desktop sessions.
@@ -136,7 +152,7 @@ eD2K/Kad compatibility as the boundary.
 
 ### REST And Controller Integration
 
-eMule BB exposes an authenticated JSON REST API from the existing WebServer
+eMuleBB exposes an authenticated JSON REST API from the existing WebServer
 listener for trusted local controllers. The `/api/v1` surface is designed around
 native eMule behavior, not a generic downloader model.
 
@@ -199,11 +215,14 @@ Start with the public site and the maintained source docs:
 ## Primary Repositories
 
 - [`emulebb`](https://github.com/emulebb/emulebb) - desktop app and product source
-- [`emulebb-setup`](https://github.com/emulebb/emulebbbb-setup) - reproducible workspace setup
+- [`emulebb-setup`](https://github.com/emulebb/emulebb-setup) - reproducible workspace setup
 - [`emulebb-build`](https://github.com/emulebb/emulebb-build) - build, validation, and release orchestration
 - [`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests) - native, Python, UI, REST, and live E2E tests
 - [`emulebb-tooling`](https://github.com/emulebb/emulebb-tooling) - roadmap, backlog, policy, audits, and reference docs
 - [`emulebb.github.io`](https://emulebb.github.io/) - public product page
+- [`goed2k-server`](https://github.com/emulebb/goed2k-server) - ED2K server component for deterministic testing and ecosystem work
+- [`amutorrent`](https://github.com/emulebb/amutorrent) - adjacent controller/web workflow product for eMuleBB and aMule-style clients
+- [`p2p-overlord-agents`](https://github.com/emulebb/p2p-overlord-agents) and [`p2p-overlord-be`](https://github.com/emulebb/p2p-overlord-be) - adjacent headless/server-oriented P2P tools
 
 ## Project Principles
 
