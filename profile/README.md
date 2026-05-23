@@ -14,21 +14,34 @@ client, the release and test machinery, the public documentation, controller
 workflows, Windows build tracks for adjacent tools, and exploratory eD2K/Kad
 projects that keep the protocol knowledge sharp. More is coming. Stay tuned.
 
-The first public release candidate is planned as **0.7.3-rc.1**. It is **not
-yet released**.
+Public testing has started through nightly builds. The first public release
+candidate is still planned as **0.7.3-rc.1** and will be tagged after the
+remaining release proof is accepted.
 
 ## At A Glance
 
 | Area | Current public status |
 | --- | --- |
 | Flagship product | eMuleBB, the compact name for eMule broadband edition |
-| Release | First public release candidate `0.7.3-rc.1`, planned and not yet released |
+| Release | Nightly testing open; first public release candidate `0.7.3-rc.1` still planned |
 | Platform | Windows desktop client, with x64 and ARM64 package proof in scope |
 | Network | Stock-compatible eD2K and Kad behavior remains the default |
 | Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
 | Companion tools | aMuTorrent fork for managing eMuleBB and controller-style workflows |
 | Windows builds | aMule and MiniUPnP/miniupnpc build and validation tracks |
 | P2P lab | goed2k work and p2p-overlord headless eD2K/Kad exploration |
+
+## Testing Started
+
+We are open for testers now. Use nightly builds if you want to help shake out
+real Windows profiles, large libraries, controller/API workflows, package
+contents, startup/shutdown behavior, and public-network regressions before
+`0.7.3-rc.1`.
+
+Use a disposable or backed-up profile when testing nightlies. Report crashes,
+freezes, broken packages, UI regressions, REST/controller problems, and
+repeatable live-network issues in
+[`emulebb/issues`](https://github.com/emulebb/emulebb/issues).
 
 ## What We Build
 
@@ -83,6 +96,10 @@ usable on modern broadband systems.
 | Website | [`emulebb.github.io`](https://emulebb.github.io/) |
 | Community | [`Discord`](https://discord.gg/uWQa9g37) |
 | Flagship source | [`emulebb`](https://github.com/emulebb/emulebb) |
+| eMuleBB downloads | [`releases`](https://github.com/emulebb/emulebb/releases) / [`nightlies`](https://github.com/emulebb/emulebb/releases?q=nightly&expanded=true) |
+| aMule downloads | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
+| aMuTorrent downloads | [`releases`](https://github.com/emulebb/amutorrent/releases) |
+| MiniUPnP downloads | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 | User docs | [`Product guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
 | Developer docs | [`Development guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) |
 | Release status | [`0.7.3 dashboard`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
