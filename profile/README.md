@@ -36,6 +36,11 @@ ecosystem: reproducible builds, shared test harnesses, public docs, ED2K server
 components, controller workflows, and adjacent headless P2P tools that can share
 contracts without becoming part of the desktop app.
 
+The organization also plans to publish aMule builds for users who need that
+client in the broader workflow. Those builds are distribution and validation
+artifacts from the eMuleBB ecosystem, not a claim of upstream aMule project
+ownership.
+
 The goal is not to create an incompatible network fork or a generic P2P lab.
 The organization stays centered on practical broadband eMule use: desktop
 sharing, large libraries, upload behavior, Kad/eD2K compatibility, local
