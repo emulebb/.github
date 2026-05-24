@@ -43,6 +43,19 @@ freezes, broken packages, UI regressions, REST/controller problems, and
 repeatable live-network issues in
 [`emulebb/issues`](https://github.com/emulebb/emulebb/issues).
 
+Useful reports include the package name, architecture, Windows version, profile
+type, exact launch command, repro steps, logs, diagnostic snapshots, and dumps
+for crashes, hangs, or memory-growth cases.
+
+## Build And Package Status
+
+| Track | Status | Download |
+| --- | --- | --- |
+| eMuleBB | Nightly testing open; `0.7.3-rc.1` still planned | [`releases`](https://github.com/emulebb/emulebb/releases) / [`nightlies`](https://github.com/emulebb/emulebb/releases?q=nightly&expanded=true) |
+| aMule | Nightly Windows build track available | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
+| aMuTorrent | Release automation exists; do not assume a public package unless an asset is published | [`release page`](https://github.com/emulebb/amutorrent/releases) |
+| MiniUPnP/miniupnpc | Windows `upnpc` package release available | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
+
 ## What We Build
 
 ### eMuleBB
@@ -98,11 +111,13 @@ usable on modern broadband systems.
 | Flagship source | [`emulebb`](https://github.com/emulebb/emulebb) |
 | eMuleBB downloads | [`releases`](https://github.com/emulebb/emulebb/releases) / [`nightlies`](https://github.com/emulebb/emulebb/releases?q=nightly&expanded=true) |
 | aMule downloads | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
-| aMuTorrent downloads | [`releases`](https://github.com/emulebb/amutorrent/releases) |
+| aMuTorrent downloads | [`release page`](https://github.com/emulebb/amutorrent/releases) |
 | MiniUPnP downloads | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
-| User docs | [`Product guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/GUIDE-EMULEBB.md) |
-| Developer docs | [`Development guide`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/reference/DEVELOPMENT-GUIDE.md) |
-| Release status | [`0.7.3 dashboard`](https://github.com/emulebb/emulebb-tooling/blob/main/docs/active/RELEASE-0.7.3.md) |
+| User docs | [`Product guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-EMULEBB/) |
+| Setup docs | [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/) |
+| Troubleshooting | [`Troubleshooting guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-TROUBLESHOOTING/) |
+| Developer docs | [`Development guide`](https://emulebb.github.io/emulebb-tooling/reference/DEVELOPMENT-GUIDE/) |
+| Release status | [`0.7.3 dashboard`](https://emulebb.github.io/emulebb-tooling/active/RELEASE-0.7.3/) |
 
 ## Primary Repositories
 
