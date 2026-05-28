@@ -115,6 +115,8 @@ usable on modern broadband systems.
 | MiniUPnP downloads | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 | User docs | [`Product guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-EMULEBB/) |
 | Setup docs | [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/) |
+| Use aMuTorrent with eMuleBB | [`Stack integration guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-STACK-INTEGRATIONS/) |
+| Collect diagnostics for reports | [`Diagnostics guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-DIAGNOSTICS/) |
 | Troubleshooting | [`Troubleshooting guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-TROUBLESHOOTING/) |
 | Developer docs | [`Development guide`](https://emulebb.github.io/emulebb-tooling/reference/DEVELOPMENT-GUIDE/) |
 | Release status | [`0.7.3 dashboard`](https://emulebb.github.io/emulebb-tooling/active/RELEASE-0.7.3/) |
