@@ -1,6 +1,11 @@
 # eMuleBB
 
-[![Fast Harness CI](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg)](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml)
+[![eMuleBB Baseline](https://github.com/emulebb/emulebb/actions/workflows/baseline.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb/actions/workflows/baseline.yml)
+[![Controlled Smoke](https://github.com/emulebb/emulebb/actions/workflows/controlled-smoke.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb/actions/workflows/controlled-smoke.yml)
+[![Nightly](https://github.com/emulebb/emulebb/actions/workflows/nightly.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb/actions/workflows/nightly.yml)
+[![Fast Harness CI](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb-build-tests/actions/workflows/fast-harness-ci.yml)
+[![Docs](https://github.com/emulebb/emulebb-tooling/actions/workflows/docs-site.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb-tooling/actions/workflows/docs-site.yml)
+[![Build Orchestration](https://github.com/emulebb/emulebb-build/actions/workflows/baseline.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb-build/actions/workflows/baseline.yml)
 
 This is the home of **eMuleBB**, the compact public name for
 **eMule broadband edition**.
