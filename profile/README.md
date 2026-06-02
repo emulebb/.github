@@ -48,6 +48,10 @@ freezes, broken packages, UI regressions, REST/controller problems, and
 repeatable live-network issues in
 [`emulebb/issues`](https://github.com/emulebb/emulebb/issues).
 
+eMuleBB nightly ZIP, manifest, and SBOM assets include GitHub artifact
+attestations. Verify a downloaded nightly asset with
+`gh attestation verify PATH_TO_ASSET -R emulebb/emulebb`.
+
 Useful reports include the package name, architecture, Windows version, profile
 type, exact launch command, repro steps, logs, diagnostic snapshots, and dumps
 for crashes, hangs, or memory-growth cases.
@@ -96,7 +100,8 @@ without pretending every experiment is already a stable end-user product.
 eMuleBB is being built as a tested desktop product, not a patched source tree.
 Public claims stay tied to evidence: hosted fast CI, native tests, REST
 contracts, UI and resource checks, live eD2K/Kad scenarios, controller lanes,
-package provenance, SBOMs, SHA-256 hashes, and explicit operator gates.
+package provenance, GitHub artifact attestations for eMuleBB nightlies, SBOMs,
+SHA-256 hashes, and explicit operator gates.
 
 Performance work is treated the same way. Claims are tied to concrete
 operating surfaces: upload-slot policy, queue/source limits, socket and file
