@@ -36,6 +36,49 @@ remaining release proof is accepted.
 | Windows builds | aMule and MiniUPnP/miniupnpc build and validation tracks |
 | P2P lab | goed2k work and p2p-overlord headless eD2K/Kad exploration |
 
+## Install Or Try eMuleBB
+
+Choose one install path:
+
+### Basic ZIP Install
+
+Use this path for normal desktop use, RC testing, and nightlies.
+
+1. Open [`emulebb/releases`](https://github.com/emulebb/emulebb/releases).
+2. Download the intended eMuleBB ZIP. For RC1, use
+   `emulebb-0.7.3-rc.1-x64.zip` once it is published, or use the nightly asset
+   that is actually present on GitHub Releases.
+3. Extract the ZIP into a new version-specific folder, for example
+   `C:\Apps\eMuleBB\0.7.3-rc.1`.
+4. Run `emulebb.exe`.
+
+Keep each version in its own application folder. Use a backed-up or disposable
+profile for release candidates, nightlies, and support testing.
+
+### Full Suite PowerShell Install
+
+Use this path only when you want the bundled suite installer flow instead of
+only unpacking and running the desktop app. Run it after the matching release
+assets exist:
+
+```powershell
+$version = '0.7.3-rc.1'
+$releaseUrl = "https://github.com/emulebb/emulebb/releases/download/emulebb-v$version"
+$workRoot = Join-Path $env:TEMP "emulebb-suite-$version"
+New-Item -ItemType Directory -Force -Path $workRoot | Out-Null
+$scriptPath = Join-Path $workRoot 'Bootstrap-eMuleBBSuite.ps1'
+iwr -UseBasicParsing "$releaseUrl/Bootstrap-eMuleBBSuite.ps1" -OutFile $scriptPath
+$expected = ((irm "$releaseUrl/Bootstrap-eMuleBBSuite.ps1.sha256") -split '\s+')[0]
+$actual = (Get-FileHash -Algorithm SHA256 -LiteralPath $scriptPath).Hash.ToLowerInvariant()
+if ($actual -ne $expected) { throw "Bootstrapper SHA256 mismatch: $actual" }
+& $scriptPath -Version $version -IncludePrerelease
+```
+
+If split-tunnel VPN software breaks loopback on the machine, set `X_LOCAL_IP`
+to the machine's LAN IPv4 address before running the bootstrapper. The detailed
+setup reference is the
+[`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/).
+
 ## Testing Started
 
 We are open for testers now. Use nightly builds if you want to help shake out
