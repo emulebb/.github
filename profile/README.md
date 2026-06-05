@@ -68,13 +68,13 @@ simple ZIP package.
 For the latest nightly or prerelease:
 
 ```powershell
-.\Bootstrap-eMuleBBSuite.ps1 -IncludePrerelease
+.\Bootstrap-eMuleBBSuite.ps1 -IncludePrerelease -Bundle Full
 ```
 
 For RC1 after it is published:
 
 ```powershell
-.\Bootstrap-eMuleBBSuite.ps1 -Version 0.7.3-rc.1 -IncludePrerelease
+.\Bootstrap-eMuleBBSuite.ps1 -Version 0.7.3-rc.1 -IncludePrerelease -Bundle Full
 ```
 
 The bootstrapper downloads and verifies the matching release package, extracts
