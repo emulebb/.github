@@ -19,84 +19,72 @@ client, the release and test machinery, the public documentation, controller
 workflows, Windows build tracks for adjacent tools, and exploratory eD2K/Kad
 projects that keep the protocol knowledge sharp. More is coming. Stay tuned.
 
-Public testing has started through nightly builds. The first public release
-candidate is still planned as **0.7.3-rc.1** and will be tagged after the
-remaining release proof is accepted.
+The first public release candidate, **0.7.3-rc.1**, is published on GitHub
+Releases with matching suite bootstrap and aMuTorrent controller packages.
 
 ## At A Glance
 
 | Area | Current public status |
 | --- | --- |
 | Flagship product | eMuleBB, the compact name for eMule broadband edition |
-| Release | Nightly testing open; first public release candidate `0.7.3-rc.1` still planned |
+| Release | `0.7.3-rc.1` published as the first public release candidate |
 | Platform | Windows desktop client, with x64 and ARM64 package proof in scope |
 | Network | Stock-compatible eD2K and Kad behavior remains the default |
 | Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
-| Companion tools | aMuTorrent fork for managing eMuleBB and controller-style workflows |
+| Companion tools | Matching aMuTorrent RC1 package for eMuleBB management and controller-style workflows |
 | Windows builds | aMule and MiniUPnP/miniupnpc build and validation tracks |
 | P2P lab | goed2k work and p2p-overlord headless eD2K/Kad exploration |
 
 ## Install Or Try eMuleBB
 
-Choose one install path:
+RC1 is published on GitHub Releases. Choose one install path:
 
-### Basic ZIP Install
+### Option 1: Manual Standalone ZIP
 
-Use this path for normal desktop use, RC testing, and nightlies.
+Use this path when you only want the eMuleBB desktop app.
 
-1. Open [`emulebb/releases`](https://github.com/emulebb/emulebb/releases).
-2. Download the intended eMuleBB ZIP. For RC1, use
-   `emulebb-0.7.3-rc.1-x64.zip` once it is published, or use the nightly asset
-   that is actually present on GitHub Releases.
+1. Open
+   [`emulebb-v0.7.3-rc.1`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.1).
+2. Download `emulebb-0.7.3-rc.1-x64.zip`.
 3. Extract the ZIP into a new version-specific folder, for example
    `C:\Apps\eMuleBB\0.7.3-rc.1`.
 4. Run `emulebb.exe`.
 
 Keep each version in its own application folder. Use a backed-up or disposable
-profile for release candidates, nightlies, and support testing.
+profile for RC testing and support testing.
 
-### Full Suite PowerShell Install
+### Option 2: Full Suite PowerShell One-Liner
 
-Use this path when you want the bundled eMuleBB suite installer instead of the
-simple ZIP package.
-
-1. Open [`emulebb/releases`](https://github.com/emulebb/emulebb/releases).
-2. Download `Bootstrap-eMuleBBSuite.ps1` for the release you want.
-3. Open PowerShell in the download folder.
-4. Run the bootstrapper.
-
-For the latest nightly or prerelease:
+Use this path when you want eMuleBB plus aMuTorrent, Prowlarr, Radarr, and
+Sonarr integration out of the box.
 
 ```powershell
-.\Bootstrap-eMuleBBSuite.ps1 -IncludePrerelease -Bundle Full
-```
-
-For RC1 after it is published:
-
-```powershell
-.\Bootstrap-eMuleBBSuite.ps1 -Version 0.7.3-rc.1 -IncludePrerelease -Bundle Full
+irm https://github.com/emulebb/emulebb/releases/download/emulebb-v0.7.3-rc.1/Bootstrap-eMuleBBSuite.ps1 | iex
 ```
 
 The bootstrapper downloads and verifies the matching release package, extracts
-the suite installer, and starts the install flow. Advanced options and
-verification details are in the
+the suite installer, resolves the matching aMuTorrent RC1 package, and starts
+the install flow. Advanced options and verification details are in the
 [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/).
 
-## Testing Started
+### Security And Provenance
 
-We are open for testers now. Use nightly builds if you want to help shake out
-real Windows profiles, large libraries, controller/API workflows, package
-contents, startup/shutdown behavior, and public-network regressions before
-`0.7.3-rc.1`.
+All RC1 builds and packaging happen in GitHub Actions and are published through
+GitHub Releases. The release includes ZIPs, manifests, SHA-256 evidence, SPDX
+SBOMs, diagnostics packages, the suite bootstrapper, and the bootstrapper
+SHA-256 asset. The bootstrapper verifies package hashes from the release
+manifests before installing.
 
-Use a disposable or backed-up profile when testing nightlies. Report crashes,
+## RC1 Testing
+
+We are open for testers now. Use the published RC1 packages if you want to help
+shake out real Windows profiles, large libraries, controller/API workflows,
+package contents, startup/shutdown behavior, and public-network regressions.
+
+Use a disposable or backed-up profile when testing RC builds. Report crashes,
 freezes, broken packages, UI regressions, REST/controller problems, and
 repeatable live-network issues in
 [`emulebb/issues`](https://github.com/emulebb/emulebb/issues).
-
-eMuleBB nightly ZIP, manifest, SBOM, and suite bootstrapper assets include
-GitHub artifact attestations. Verify a downloaded nightly asset with
-`gh attestation verify PATH_TO_ASSET -R emulebb/emulebb`.
 
 Useful reports include the package name, architecture, Windows version, profile
 type, exact launch command, repro steps, logs, diagnostic snapshots, and dumps
@@ -106,9 +94,9 @@ for crashes, hangs, or memory-growth cases.
 
 | Track | Status | Download |
 | --- | --- | --- |
-| eMuleBB | Nightly testing open; `0.7.3-rc.1` still planned | [`releases`](https://github.com/emulebb/emulebb/releases) / [`nightlies`](https://github.com/emulebb/emulebb/releases?q=nightly&expanded=true) |
+| eMuleBB | `0.7.3-rc.1` published as the first public release candidate | [`download RC1`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.1) |
 | aMule | Nightly Windows build track available | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
-| aMuTorrent | Release automation exists; do not assume a public package unless an asset is published | [`release page`](https://github.com/emulebb/amutorrent/releases) |
+| aMuTorrent | Matching eMuleBB RC1 controller package published | [`download RC1`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.5-emulebb-v0.7.3-rc.1) |
 | MiniUPnP/miniupnpc | Windows `upnpc` package release available | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 
 ## What We Build
@@ -146,8 +134,9 @@ without pretending every experiment is already a stable end-user product.
 eMuleBB is being built as a tested desktop product, not a patched source tree.
 Public claims stay tied to evidence: hosted fast CI, native tests, REST
 contracts, UI and resource checks, live eD2K/Kad scenarios, controller lanes,
-package provenance, GitHub artifact attestations for eMuleBB nightlies, SBOMs,
-SHA-256 hashes, and explicit operator gates.
+package provenance, GitHub Actions release packaging, GitHub Releases assets,
+SBOMs, SHA-256 hashes, manifests, diagnostics packages, and explicit operator
+gates.
 
 Performance work is treated the same way. Claims are tied to concrete
 operating surfaces: upload-slot policy, queue/source limits, socket and file
@@ -165,9 +154,9 @@ usable on modern broadband systems.
 | Website | [`emulebb.github.io`](https://emulebb.github.io/) |
 | Community | [`Discord`](https://discord.gg/uWQa9g37) |
 | Flagship source | [`emulebb`](https://github.com/emulebb/emulebb) |
-| eMuleBB downloads | [`releases`](https://github.com/emulebb/emulebb/releases) / [`nightlies`](https://github.com/emulebb/emulebb/releases?q=nightly&expanded=true) |
+| eMuleBB downloads | [`download RC1`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.1) |
 | aMule downloads | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
-| aMuTorrent downloads | [`release page`](https://github.com/emulebb/amutorrent/releases) |
+| aMuTorrent downloads | [`download RC1`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.5-emulebb-v0.7.3-rc.1) |
 | MiniUPnP downloads | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 | User docs | [`Product guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-EMULEBB/) |
 | Setup docs | [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/) |
