@@ -124,10 +124,12 @@ for users who want these tools in the same Windows P2P workflow.
 
 ### P2P Lab Work
 
-The exploratory side includes the **goed2k** fork/server work and a full
-headless Rust eD2K/Kad client direction inside the **p2p-overlord** suite. This
-is where deeper protocol, automation, and server-oriented P2P ideas can mature
-without pretending every experiment is already a stable end-user product.
+The exploratory side includes the **goed2k** fork/server work, the
+**emulebb-rust** headless eMuleBB-family eD2K/Kad core that implements the common
+`/api/v1` controller contract, and the broader **p2p-overlord** server-oriented
+direction. This is where deeper protocol, automation, and server-oriented P2P
+ideas can mature without pretending every experiment is already a stable
+end-user product.
 
 ## Why Trust The Work
 
@@ -178,6 +180,7 @@ usable on modern broadband systems.
 - [`emulebb-tooling`](https://github.com/emulebb/emulebb-tooling) - roadmap, backlog, policy, audits, and reference docs
 - [`amutorrent`](https://github.com/emulebb/amutorrent) - fork used for eMuleBB management and controller workflows
 - [`goed2k-server`](https://github.com/emulebb/goed2k-server) - eD2K server work for deterministic tests and ecosystem services
+- [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) - headless eMuleBB-family eD2K/Kad core implementing the common `/api/v1` controller contract
 - [`p2p-overlord-agents`](https://github.com/emulebb/p2p-overlord-agents) and [`p2p-overlord-be`](https://github.com/emulebb/p2p-overlord-be) - exploratory headless/server-oriented P2P work
 
 ## Build Tracks And Adjacent Tools
