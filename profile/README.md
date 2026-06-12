@@ -35,6 +35,40 @@ Releases with matching suite bootstrap and aMuTorrent controller packages.
 | Windows builds | aMule and MiniUPnP/miniupnpc build and validation tracks |
 | P2P lab | goed2k work and p2p-overlord headless eD2K/Kad exploration |
 
+## How It Fits Together
+
+eMuleBB exposes a native `/api/v1` REST surface plus qBittorrent- and
+Torznab-compatible adapters, so controllers like aMuTorrent and the Arr stack can
+drive it without flattening native eD2K/Kad behavior. The same `/api/v1` contract
+is implemented by both the C++ desktop and the headless **emulebb-rust** core, so
+controllers work across them interchangeably.
+
+```mermaid
+flowchart LR
+    Amu["aMuTorrent UI<br/>· scripts"]
+    Prowlarr["Prowlarr"]
+    Arr["Radarr · Sonarr<br/>Lidarr · Whisparr"]
+
+    subgraph Core["eMuleBB core — shared /api/v1"]
+        direction TB
+        Cpp["eMuleBB<br/>C++ desktop"]
+        Rust["emulebb-rust<br/>headless"]
+    end
+
+    Net[("eD2K / Kad<br/>network")]
+
+    Amu -->|"REST /api/v1"| Core
+    Arr -->|"qBit /api/v2"| Cpp
+    Prowlarr -->|"Torznab"| Cpp
+    Prowlarr -. indexer sync .-> Arr
+    Core --> Net
+
+    style Rust fill:#dea584,stroke:#8b4513
+```
+
+REST `/api/v1` is the shared contract (C++ **and** `emulebb-rust`); the qBit
+`/api/v2` and Torznab adapters are C++ desktop surfaces today.
+
 ## Install Or Try eMuleBB
 
 RC1 is published on GitHub Releases. Choose one install path:
