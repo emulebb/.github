@@ -22,6 +22,28 @@ projects that keep the protocol knowledge sharp. More is coming. Stay tuned.
 The current public release candidate, **0.7.3-rc.2**, is published on GitHub
 Releases with matching suite bootstrap and aMuTorrent controller packages.
 
+## What We Offer
+
+eMuleBB is a **complete, privacy-first peer-to-peer suite** for people who take
+file sharing seriously — built on classic eD2K/Kad, extended to BitTorrent, and
+designed to run safely and automatically.
+
+- **Two networks, one stack.** A broadband-tuned eD2K/Kad client plus a
+  BitTorrent companion, managed from a single controller — discover and move
+  files across both worlds.
+- **Private by default.** Peer traffic is pinned to your VPN tunnel, fail-closed —
+  your real IP never touches a swarm.
+- **No central servers or indexers required.** Kad and the BitTorrent DHT do the
+  discovery; you run your own search. Nothing to shut down.
+- **Built for automation.** A native REST API plus Torznab and
+  qBittorrent-compatible adapters drop straight into Prowlarr, Sonarr, Radarr, and
+  the aMuTorrent controller.
+
+**Today:** run the Windows client (eMuleBB `0.7.3-rc.2`) with the aMuTorrent
+controller and the one-line suite installer. **Next:** a multiplatform core
+(`emulebb-rust`) with autonomous Kad/eD2K indexing and cross-network library
+bridging — see the eMuleBB Suite direction below.
+
 ## At A Glance
 
 | Area | Current public status |
