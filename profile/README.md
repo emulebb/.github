@@ -37,37 +37,62 @@ Releases with matching suite bootstrap and aMuTorrent controller packages.
 
 ## How It Fits Together
 
-eMuleBB exposes a native `/api/v1` REST surface plus qBittorrent- and
-Torznab-compatible adapters, so controllers like aMuTorrent and the Arr stack can
-drive it without flattening native eD2K/Kad behavior. The same `/api/v1` contract
-is implemented by both the C++ desktop and the headless **emulebb-rust** core, so
-controllers work across them interchangeably.
+The suite is organized as **clients behind shared controller contracts**, so
+off-the-shelf tools drive every part without flattening native protocol behavior.
+
+- **eMuleBB** — the C++ MFC Windows desktop client and current flagship of the
+  `0.7.3` line.
+- **emulebb-rust** — the headless, multiplatform eD2K/Kad core; the forward
+  direction of the eMule-family work, and an autonomous Kad/eD2K indexer.
+- **qBittorrentBB** — the BitTorrent-side companion: a full BT client with a DHT
+  harvester and a Torznab index.
+- **aMuTorrent** — the cross-network web-UI controller that manages the eD2K and
+  BitTorrent clients together.
+
+Both eD2K/Kad cores implement the same `/api/v1` REST contract, and every client
+also exposes Torznab (indexer) and qBittorrent-compatible (download-client)
+surfaces, so Prowlarr and the Arr stack search and grab across both networks
+interchangeably. Data-plane traffic egresses a fail-closed VPN tunnel.
 
 ```mermaid
 flowchart LR
-    Amu["aMuTorrent UI<br/>· scripts"]
-    Prowlarr["Prowlarr"]
+    Amu["aMuTorrent<br/>web UI · cross-network controller"]
+    Prowlarr["Prowlarr<br/>indexer federation"]
     Arr["Radarr · Sonarr<br/>Lidarr · Whisparr"]
 
-    subgraph Core["eMuleBB core — shared /api/v1"]
+    subgraph Cores["eD2K / Kad cores — shared /api/v1"]
         direction TB
-        Cpp["eMuleBB<br/>C++ desktop"]
-        Rust["emulebb-rust<br/>headless"]
+        Cpp["eMuleBB<br/>C++ MFC desktop<br/>current flagship · 0.7.3"]
+        Rust["emulebb-rust<br/>headless · multiplatform<br/>forward core + Kad/eD2K indexer"]
     end
 
-    Net[("eD2K / Kad<br/>network")]
+    Qbbb["qBittorrentBB<br/>BitTorrent client<br/>DHT harvester + Torznab"]
 
-    Amu -->|"REST /api/v1"| Core
-    Arr -->|"qBit /api/v2"| Cpp
-    Prowlarr -->|"Torznab"| Cpp
+    Ed2k[("eD2K / Kad")]
+    Bt[("BitTorrent<br/>DHT · swarms")]
+    Vpn{{"VPN — fail-closed data plane"}}
+
+    Amu -->|"REST /api/v1"| Cores
+    Amu -->|"qBit WebUI API"| Qbbb
+    Arr -->|"qBit download client"| Cores
+    Arr -->|"qBit download client"| Qbbb
+    Prowlarr -->|"Torznab"| Cores
+    Prowlarr -->|"Torznab"| Qbbb
     Prowlarr -. indexer sync .-> Arr
-    Core --> Net
+
+    Cores --> Vpn
+    Qbbb --> Vpn
+    Vpn --> Ed2k
+    Vpn --> Bt
 
     style Rust fill:#dea584,stroke:#8b4513
+    style Qbbb fill:#cfe8ff,stroke:#1c6fb4
 ```
 
-REST `/api/v1` is the shared contract (C++ **and** `emulebb-rust`); the qBit
-`/api/v2` and Torznab adapters are C++ desktop surfaces today.
+This is the **target suite architecture**. Today, `/api/v1` is shared by the C++
+desktop and `emulebb-rust`, and the qBit `/api/v2` and Torznab adapters ship as
+C++ desktop surfaces; `emulebb-rust` indexing and the qBittorrentBB companion are
+the active forward tracks.
 
 ## Install Or Try eMuleBB
 
