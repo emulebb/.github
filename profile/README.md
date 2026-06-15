@@ -10,14 +10,15 @@
 This is the home of **eMuleBB**, the compact public name for
 **eMule broadband edition**.
 
-eMuleBB is its own product: a broadband-focused Windows eMule line for people
-who still care about eD2K, Kad, rare files, deliberate sharing, long-running
-desktop sessions, and local automation that respects native eMule behavior.
+eMuleBB began as a broadband-focused Windows eMule line — eD2K, Kad, rare files,
+deliberate sharing, long-running sessions — and is growing into a full
+peer-to-peer suite: a multiplatform core, a BitTorrent companion, and a
+cross-network controller, all behind shared, automatable contracts.
 
-The organization around it is a practical P2P workshop. We build the desktop
-client, the release and test machinery, the public documentation, controller
-workflows, Windows build tracks for adjacent tools, and exploratory eD2K/Kad
-projects that keep the protocol knowledge sharp. More is coming. Stay tuned.
+The organization around it is a practical P2P workshop. We build the clients, the
+controller, the release and test machinery, the public documentation, and the
+protocol work that keeps it honest — shipping a stable Windows client today while
+the multiplatform core takes shape.
 
 The current public release candidate, **0.7.3-rc.2**, is published on GitHub
 Releases with matching suite bootstrap and aMuTorrent controller packages.
@@ -31,8 +32,9 @@ designed to run safely and automatically.
 - **Two networks, one stack.** A broadband-tuned eD2K/Kad client plus a
   BitTorrent companion, managed from a single controller — discover and move
   files across both worlds.
-- **Private by default.** Peer traffic is pinned to your VPN tunnel, fail-closed —
-  your real IP never touches a swarm.
+- **VPN-aware by design.** The data plane is built to ride your VPN interface, so
+  peer traffic stays on your tunnel. (Fail-closed binding is being hardened across
+  the suite.)
 - **No central servers or indexers required.** Kad and the BitTorrent DHT do the
   discovery; you run your own search. Nothing to shut down.
 - **Built for automation.** A native REST API plus Torznab and
@@ -48,14 +50,14 @@ bridging — see the eMuleBB Suite direction below.
 
 | Area | Current public status |
 | --- | --- |
-| Flagship product | eMuleBB, the compact name for eMule broadband edition |
-| Release | `0.7.3-rc.2` is the current published release candidate |
-| Platform | Windows desktop client, with x64 and ARM64 package proof in scope |
-| Network | Stock-compatible eD2K and Kad behavior remains the default |
-| Automation | Authenticated JSON REST API under `/api/v1` from the existing WebServer |
-| Companion tools | Matching aMuTorrent RC2 package for eMuleBB management and controller-style workflows |
-| Windows builds | aMule and MiniUPnP/miniupnpc build and validation tracks |
-| P2P lab | goed2k work and p2p-overlord headless eD2K/Kad exploration |
+| Product | eMuleBB — a cross-network P2P suite; the eMuleBB Windows client is the stable entry point |
+| Shipping now | eMuleBB `0.7.3-rc.2` (Windows) + aMuTorrent controller + one-line suite installer |
+| Forward core | `emulebb-rust` — multiplatform eD2K/Kad core + autonomous indexing (in development) |
+| BitTorrent | qBittorrentBB companion — DHT harvester + Torznab index (in development) |
+| Networks | eD2K/Kad and the BitTorrent DHT — discovery without central servers or indexers |
+| Automation | Native `/api/v1` REST plus Torznab and qBittorrent-compatible adapters for Prowlarr/Arr |
+| Windows build tracks | aMule and MiniUPnP/miniupnpc |
+| Lab | goed2k-server — a deterministic eD2K server for tests |
 
 ## How It Fits Together
 
@@ -176,59 +178,71 @@ for crashes, hangs, or memory-growth cases.
 | Track | Status | Download |
 | --- | --- | --- |
 | eMuleBB | `0.7.3-rc.2` published as the first public release candidate | [`download RC2`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.2) |
+| emulebb-rust | Multiplatform eD2K/Kad core in development; no release yet | [`source`](https://github.com/emulebb/emulebb-rust) |
+| qBittorrentBB | BitTorrent companion in development; no release yet | [`source`](https://github.com/emulebb/qbittorrentbb) |
 | aMule | Nightly Windows build track available | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
 | aMuTorrent | Matching eMuleBB RC2 controller package published | [`download RC2`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.5-emulebb-v0.7.3-rc.2) |
 | MiniUPnP/miniupnpc | Windows `upnpc` package release available | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 
 ## What We Build
 
-### eMuleBB
+### eMuleBB — Windows client (shipping today)
 
-eMuleBB keeps the familiar desktop workflow at the center: servers, Kad search,
-shared files, upload queues, categories, known clients, and long-running
-control. Around that foundation it adds broadband-aware upload policy, safer
-large-library operation, authenticated REST automation, performance-minded
-defaults, and release evidence without creating an incompatible network fork.
+The eMuleBB desktop client keeps the familiar workflow at the center: servers,
+Kad search, shared files, upload queues, categories, known clients, and
+long-running control, plus broadband-aware upload policy, safer large-library
+operation, authenticated REST automation, and release evidence. It is the stable
+entry point to the suite and is maintained on the `0.7.x` line.
 
-### Management And Controller Workflows
+### emulebb-rust — the multiplatform forward core
 
-The eMuleBB ecosystem includes an **aMuTorrent fork** focused on managing
-eMuleBB and validating controller-style workflows. It sits beside the desktop
-app instead of replacing it, and it keeps the native `/api/v1` contract as the
-source of truth.
+**emulebb-rust** is where the eD2K/Kad client is headed: a headless,
+multiplatform core that implements the same `/api/v1` contract as the desktop
+client and adds autonomous Kad/eD2K indexing exposed over Torznab. This is the
+strategic direction of the suite, not a side experiment. In development.
 
-### Windows P2P Builds
+### qBittorrentBB — the BitTorrent companion
 
-We also provide Windows build and validation work for **aMule** and
-**MiniUPnP/miniupnpc**. Those are ecosystem builds and distribution artifacts
-for users who want these tools in the same Windows P2P workflow.
+**qBittorrentBB** brings the suite onto BitTorrent: a full client with a DHT
+harvester, a local searchable index, and a Torznab endpoint, so discovery spans
+both networks. In development.
 
-### P2P Lab Work
+### aMuTorrent — the cross-network controller
 
-The exploratory side includes the **goed2k** fork/server work, the
-**emulebb-rust** headless eMuleBB-family eD2K/Kad core that implements the common
-`/api/v1` controller contract, and the broader **p2p-overlord** server-oriented
-direction. This is where deeper protocol, automation, and server-oriented P2P
-ideas can mature without pretending every experiment is already a stable
-end-user product.
+The **aMuTorrent fork** manages the eD2K and BitTorrent clients from one web UI
+and validates controller workflows. It keeps the native `/api/v1` contract as the
+source of truth and is an optional layer — the clients work standalone.
+
+### Windows build tracks
+
+We provide Windows build and validation work for **aMule** and
+**MiniUPnP/miniupnpc** — ecosystem builds for users who want these tools in the
+same Windows P2P workflow.
+
+### Lab and adjacent work
+
+**goed2k-server** is a deterministic eD2K server used for tests and parity work.
+**p2p-overlord** is a separate, server-oriented product line in the family — it
+can share contracts and infrastructure but is not part of the suite.
 
 ## Why Trust The Work
 
-eMuleBB is being built as a tested desktop product, not a patched source tree.
-Public claims stay tied to evidence: hosted fast CI, native tests, REST
-contracts, UI and resource checks, live eD2K/Kad scenarios, controller lanes,
-package provenance, GitHub Actions release packaging, GitHub Releases assets,
-SBOMs, SHA-256 hashes, manifests, diagnostics packages, and explicit operator
-gates.
+The suite is built as tested products, not patched source trees. Public claims
+stay tied to evidence across the family: CI on every active repo (the rust core
+builds and tests on Windows, Linux, and macOS), native and harness tests, REST
+contracts, live eD2K/Kad scenarios, controller lanes, package provenance, GitHub
+Actions release packaging, SBOMs, SHA-256 hashes, manifests, and explicit
+operator gates. A tracked-content guard keeps secrets and private data out of the
+repositories.
 
-Performance work is treated the same way. Claims are tied to concrete
+Performance and behavior are treated the same way. Claims are tied to concrete
 operating surfaces: upload-slot policy, queue/source limits, socket and file
-buffers, startup behavior, large shared libraries, long paths, controller
-responsiveness, and long-running Windows sessions.
+buffers, startup behavior, large shared libraries, long paths, and controller
+responsiveness.
 
 The result is a focused P2P organization: conservative where compatibility
-matters, aggressive about validation, and serious about making classic eMule
-usable on modern broadband systems.
+matters, aggressive about validation, and serious about making eD2K/Kad and
+BitTorrent usable, automatable, and honest on modern systems.
 
 ## Quick Links
 
@@ -251,18 +265,31 @@ usable on modern broadband systems.
 | Troubleshooting | [`Troubleshooting guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-TROUBLESHOOTING/) |
 | Developer docs | [`Development guide`](https://emulebb.github.io/emulebb-tooling/reference/DEVELOPMENT-GUIDE/) |
 | Release status | [`0.7.3 dashboard`](https://emulebb.github.io/emulebb-tooling/active/RELEASE-0.7.3/) |
+| Suite roadmap | [`eMuleBB Suite board`](https://github.com/orgs/emulebb/projects/3) |
 
 ## Primary Repositories
 
-- [`emulebb`](https://github.com/emulebb/emulebb) - flagship desktop app and product source
-- [`emulebb-setup`](https://github.com/emulebb/emulebb-setup) - reproducible workspace setup
+**Clients and core**
+
+- [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) - multiplatform eD2K/Kad core + autonomous indexing (the forward core)
+- [`emulebb`](https://github.com/emulebb/emulebb) - eMuleBB Windows client (flagship; maintained on `0.7.x`)
+- [`qbittorrentbb`](https://github.com/emulebb/qbittorrentbb) - BitTorrent companion (DHT harvester + Torznab index)
+- [`amutorrent`](https://github.com/emulebb/amutorrent) - cross-network web-UI controller
+
+**Infrastructure**
+
 - [`emulebb-build`](https://github.com/emulebb/emulebb-build) - build, validation, and release orchestration
 - [`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests) - native, Python, UI, REST, and live E2E tests
 - [`emulebb-tooling`](https://github.com/emulebb/emulebb-tooling) - roadmap, backlog, policy, audits, and reference docs
-- [`amutorrent`](https://github.com/emulebb/amutorrent) - fork used for eMuleBB management and controller workflows
-- [`goed2k-server`](https://github.com/emulebb/goed2k-server) - eD2K server work for deterministic tests and ecosystem services
-- [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) - headless eMuleBB-family eD2K/Kad core implementing the common `/api/v1` controller contract
-- [`p2p-overlord-agents`](https://github.com/emulebb/p2p-overlord-agents) and [`p2p-overlord-be`](https://github.com/emulebb/p2p-overlord-be) - exploratory headless/server-oriented P2P work
+- [`emulebb-setup`](https://github.com/emulebb/emulebb-setup) - reproducible workspace setup
+
+**Service / lab**
+
+- [`goed2k-server`](https://github.com/emulebb/goed2k-server) - deterministic eD2K server for tests and parity work
+
+**Separate product family** (shares contracts/infrastructure, not part of the suite)
+
+- [`p2p-overlord-agents`](https://github.com/emulebb/p2p-overlord-agents) and [`p2p-overlord-be`](https://github.com/emulebb/p2p-overlord-be) - server-oriented P2P line
 
 ## Build Tracks And Adjacent Tools
 
@@ -271,10 +298,10 @@ usable on modern broadband systems.
 
 ## Project Principles
 
-- eMuleBB is the product identity; eMule broadband edition is the full product name.
+- eMuleBB is a peer-to-peer suite; the eMuleBB Windows client is its stable entry point.
 - Keep stock eD2K/Kad protocol compatibility as the default.
-- Improve the classic desktop app instead of replacing it with a rewrite.
-- Treat REST and controller support as product features.
-- Make Windows packages, build evidence, and release gates inspectable.
-- Keep exploratory P2P work visible, useful, and clearly labeled.
+- The Windows MFC client is maintained on `0.7.x`; the multiplatform forward core is emulebb-rust.
+- Treat REST, Torznab, and controller support as shared product features across clients.
+- Make packages, build evidence, and release gates inspectable.
+- Keep lab and separate-family work visible, useful, and clearly labeled.
 - Sell the expertise by proving the work.
