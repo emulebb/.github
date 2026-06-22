@@ -142,12 +142,14 @@ Use this path when you want eMuleBB plus aMuTorrent, Prowlarr, Radarr, and
 Sonarr integration out of the box.
 
 ```powershell
-irm https://github.com/emulebb/emulebb/releases/download/emulebb-v0.7.3-rc.3/Bootstrap-eMuleBBSuite.ps1 | iex
+irm https://emulebb.github.io/install.ps1 | iex
 ```
 
-The bootstrapper downloads and verifies the matching release package, extracts
-the suite installer, resolves the matching aMuTorrent RC3 package, and starts
-the install flow. Advanced options and verification details are in the
+The Pages `install.ps1` is a thin wrapper that resolves the latest published
+release and forwards to its `Bootstrap-eMuleBBSuite.ps1`. The bootstrapper then
+downloads and verifies the matching release package, extracts the suite
+installer, resolves the matching aMuTorrent package, and starts the install
+flow. Advanced options and verification details are in the
 [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/).
 
 ### Security And Provenance
