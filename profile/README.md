@@ -20,7 +20,7 @@ controller, the release and test machinery, the public documentation, and the
 protocol work that keeps it honest — shipping a stable Windows client today while
 the multiplatform core takes shape.
 
-The current public release candidate, **0.7.3-rc.2**, is published on GitHub
+The current public release candidate, **0.7.3-rc.3**, is published on GitHub
 Releases with matching suite bootstrap and aMuTorrent controller packages.
 
 ## What We Offer
@@ -41,7 +41,7 @@ designed to run safely and automatically.
   qBittorrent-compatible adapters drop straight into Prowlarr, Sonarr, Radarr, and
   the aMuTorrent controller.
 
-**Today:** run the Windows client (eMuleBB `0.7.3-rc.2`) with the aMuTorrent
+**Today:** run the Windows client (eMuleBB `0.7.3-rc.3`) with the aMuTorrent
 controller and the one-line suite installer. **Next:** a multiplatform core
 (`emulebb-rust`) with autonomous Kad/eD2K indexing and cross-network library
 bridging — see the eMuleBB Suite direction below.
@@ -51,7 +51,7 @@ bridging — see the eMuleBB Suite direction below.
 | Area | Current public status |
 | --- | --- |
 | Product | eMuleBB — a cross-network P2P suite; the eMuleBB Windows client is the stable entry point |
-| Shipping now | eMuleBB `0.7.3-rc.2` (Windows) + aMuTorrent controller + one-line suite installer |
+| Shipping now | eMuleBB `0.7.3-rc.3` (Windows) + aMuTorrent controller + one-line suite installer |
 | Forward core | `emulebb-rust` — multiplatform eD2K/Kad core + autonomous indexing (in development) |
 | BitTorrent | qBittorrentBB companion — DHT harvester + Torznab index (in development) |
 | Networks | eD2K/Kad and the BitTorrent DHT — discovery without central servers or indexers |
@@ -120,17 +120,17 @@ the active forward tracks.
 
 ## Install Or Try eMuleBB
 
-RC2 is published on GitHub Releases. Choose one install path:
+RC3 is published on GitHub Releases. Choose one install path:
 
 ### Option 1: Manual Standalone ZIP
 
 Use this path when you only want the eMuleBB desktop app.
 
 1. Open
-   [`emulebb-v0.7.3-rc.2`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.2).
-2. Download `emulebb-0.7.3-rc.2-x64.zip`.
+   [`emulebb-v0.7.3-rc.3`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.3).
+2. Download `emulebb-0.7.3-rc.3-x64.zip`.
 3. Extract the ZIP into a new version-specific folder, for example
-   `C:\Apps\eMuleBB\0.7.3-rc.2`.
+   `C:\Apps\eMuleBB\0.7.3-rc.3`.
 4. Run `emulebb.exe`.
 
 Keep each version in its own application folder. Use a backed-up or disposable
@@ -142,25 +142,25 @@ Use this path when you want eMuleBB plus aMuTorrent, Prowlarr, Radarr, and
 Sonarr integration out of the box.
 
 ```powershell
-irm https://github.com/emulebb/emulebb/releases/download/emulebb-v0.7.3-rc.2/Bootstrap-eMuleBBSuite.ps1 | iex
+irm https://github.com/emulebb/emulebb/releases/download/emulebb-v0.7.3-rc.3/Bootstrap-eMuleBBSuite.ps1 | iex
 ```
 
 The bootstrapper downloads and verifies the matching release package, extracts
-the suite installer, resolves the matching aMuTorrent RC2 package, and starts
+the suite installer, resolves the matching aMuTorrent RC3 package, and starts
 the install flow. Advanced options and verification details are in the
 [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/).
 
 ### Security And Provenance
 
-All RC2 builds and packaging happen in GitHub Actions and are published through
+All RC3 builds and packaging happen in GitHub Actions and are published through
 GitHub Releases. The release includes ZIPs, manifests, SHA-256 evidence, SPDX
 SBOMs, diagnostics packages, the suite bootstrapper, and the bootstrapper
 SHA-256 asset. The bootstrapper verifies package hashes from the release
 manifests before installing.
 
-## RC2 Testing
+## RC3 Testing
 
-We are open for testers now. Use the published RC2 packages if you want to help
+We are open for testers now. Use the published RC3 packages if you want to help
 shake out real Windows profiles, large libraries, controller/API workflows,
 package contents, startup/shutdown behavior, and public-network regressions.
 
@@ -177,11 +177,11 @@ for crashes, hangs, or memory-growth cases.
 
 | Track | Status | Download |
 | --- | --- | --- |
-| eMuleBB | `0.7.3-rc.2` published as the first public release candidate | [`download RC2`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.2) |
+| eMuleBB | `0.7.3-rc.3` published as the current public release candidate | [`download RC3`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.3) |
 | emulebb-rust | Multiplatform eD2K/Kad core in development; no release yet | [`source`](https://github.com/emulebb/emulebb-rust) |
 | qBittorrentBB | BitTorrent companion in development; no release yet | [`source`](https://github.com/emulebb/qbittorrentbb) |
 | aMule | Nightly Windows build track available | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
-| aMuTorrent | Matching eMuleBB RC2 controller package published | [`download RC2`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.5-emulebb-v0.7.3-rc.2) |
+| aMuTorrent | Matching eMuleBB RC3 controller package published | [`download RC3`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.8-emulebb-v0.7.3-rc.3) |
 | MiniUPnP/miniupnpc | Windows `upnpc` package release available | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 
 ## What We Build
@@ -251,9 +251,9 @@ BitTorrent usable, automatable, and honest on modern systems.
 | Website | [`emulebb.github.io`](https://emulebb.github.io/) |
 | Community | [`Discord`](https://discord.gg/uWQa9g37) |
 | Flagship source | [`emulebb`](https://github.com/emulebb/emulebb) |
-| eMuleBB downloads | [`download RC2`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.2) |
+| eMuleBB downloads | [`download RC3`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3-rc.3) |
 | aMule downloads | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
-| aMuTorrent downloads | [`download RC2`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.5-emulebb-v0.7.3-rc.2) |
+| aMuTorrent downloads | [`download RC3`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.8-emulebb-v0.7.3-rc.3) |
 | MiniUPnP downloads | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
 | User docs | [`Product guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-EMULEBB/) |
 | Setup docs | [`Setup guide`](https://emulebb.github.io/emulebb-tooling/reference/GUIDE-SETUP/) |
