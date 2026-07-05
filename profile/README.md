@@ -160,6 +160,14 @@ evidence, SPDX SBOMs, diagnostics packages, the suite bootstrapper, and the
 bootstrapper SHA-256 asset. The bootstrapper verifies package hashes from the
 release manifests before installing.
 
+## Future Direction
+
+There is still a roadmap and a set of ideas for future MFC evolution, but MFC
+`0.8.x` is a possibility rather than a certainty. The MFC client is valuable,
+but it is heavy to evolve cleanly, so current forward development is focused on
+`emulebb-rust` and `qBittorrentBB`. The Rust client is close to public beta after
+months of testing and is the likely home for larger eD2K/Kad evolution.
+
 ## Stable Package Testing
 
 Use the published stable packages if you want to help shake out real Windows
