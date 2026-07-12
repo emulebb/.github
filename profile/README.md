@@ -11,40 +11,40 @@ This is the home of **eMuleBB**, the compact public name for
 **eMule broadband edition**.
 
 eMuleBB began as a broadband-focused Windows eMule line — eD2K, Kad, rare files,
-deliberate sharing, long-running sessions — and is growing into a full
-peer-to-peer suite: a multiplatform core, a BitTorrent companion, and a
-cross-network controller, all behind shared, automatable contracts.
+deliberate sharing, long-running sessions — and is growing into a Rust-forward
+peer-to-peer suite. The active work is the `emulebb-rust` headless client and
+Rust-native UI; BitTorrent and cross-network controller work come later.
 
 The organization around it is a practical P2P workshop. We build the clients, the
 controller, the release and test machinery, the public documentation, and the
 protocol work that keeps it honest — shipping a stable Windows client today while
-the multiplatform core takes shape.
+the multiplatform Rust client takes shape.
 
 The current public release, **0.7.3**, is published on GitHub Releases with
 matching suite bootstrap and aMuTorrent controller packages.
 
 ## What We Offer
 
-eMuleBB is a **complete, privacy-first peer-to-peer suite** for people who take
-file sharing seriously — built on classic eD2K/Kad, extended to BitTorrent, and
-designed to run safely and automatically.
+eMuleBB is a **privacy-first peer-to-peer suite** for people who take file
+sharing seriously — built on classic eD2K/Kad now, with BitTorrent companion work
+planned for a later phase.
 
-- **Two networks, one stack.** A broadband-tuned eD2K/Kad client plus a
-  BitTorrent companion, managed from a single controller — discover and move
-  files across both worlds.
+- **eD2K/Kad first.** The shipped Windows client is frozen on `0.7.x`; active
+  development is the Rust headless client plus native Rust UI.
 - **VPN-aware by design.** The data plane is built to ride your VPN interface, so
   peer traffic stays on your tunnel. (Fail-closed binding is being hardened across
   the suite.)
 - **No central servers or indexers required.** Kad and the BitTorrent DHT do the
-  discovery; you run your own search. Nothing to shut down.
+  discovery where implemented; the long-term direction is local search without a
+  central service dependency.
 - **Built for automation.** A native REST API plus Torznab and
-  qBittorrent-compatible adapters drop straight into Prowlarr, Sonarr, Radarr, and
-  the aMuTorrent controller.
+  qBittorrent-compatible adapters are used where they belong; Rust currently
+  focuses on stable client behavior and its native UI.
 
 **Today:** run the Windows client (eMuleBB `0.7.3`) with the aMuTorrent
-controller and the one-line suite installer. **Next:** a multiplatform core
-(`emulebb-rust`) with autonomous Kad/eD2K indexing and cross-network library
-bridging — see the eMuleBB Suite direction below.
+controller and the one-line suite installer. **Active next:** stabilize
+`emulebb-rust` headless client behavior and the Rust-native UI. qBittorrentBB and
+TrackMuleBB are future/parked suite work.
 
 ## At A Glance
 
@@ -52,10 +52,10 @@ bridging — see the eMuleBB Suite direction below.
 | --- | --- |
 | Product | eMuleBB — a cross-network P2P suite; the eMuleBB Windows client is the stable entry point |
 | Shipping now | eMuleBB `0.7.3` (Windows) + aMuTorrent controller + one-line suite installer |
-| Forward core | `emulebb-rust` — multiplatform eD2K/Kad core + autonomous indexing (in development) |
-| BitTorrent | qBittorrentBB companion — DHT harvester + Torznab index (in development) |
+| Forward core | `emulebb-rust` — multiplatform eD2K/Kad headless client + Rust-native UI (active development) |
+| BitTorrent | qBittorrentBB companion — DHT harvester + Torznab index (future work) |
 | Networks | eD2K/Kad and the BitTorrent DHT — discovery without central servers or indexers |
-| Automation | Native `/api/v1` REST plus Torznab and qBittorrent-compatible adapters for Prowlarr/Arr |
+| Automation | Native `/api/v1` REST; broader adapters/controllers are future suite work |
 | Windows build tracks | aMule and MiniUPnP/miniupnpc |
 | Lab | goed2k-server — a deterministic eD2K server for tests |
 
@@ -64,19 +64,19 @@ bridging — see the eMuleBB Suite direction below.
 The suite is organized as **clients behind shared controller contracts**, so
 off-the-shelf tools drive every part without flattening native protocol behavior.
 
-- **eMuleBB** — the C++ MFC Windows desktop client and current flagship of the
-  `0.7.3` line.
+- **eMuleBB** — the C++ MFC Windows desktop client shipped on the frozen
+  `0.7.3`/`0.7.x` line.
 - **emulebb-rust** — the headless, multiplatform eD2K/Kad core; the forward
-  direction of the eMule-family work, and an autonomous Kad/eD2K indexer.
+  direction of the eMule-family work, paired with a Rust-native UI.
 - **qBittorrentBB** — the BitTorrent-side companion: a full BT client with a DHT
-  harvester and a Torznab index.
+  harvester and a Torznab index. Future work.
 - **aMuTorrent** — the cross-network web-UI controller that manages the eD2K and
-  BitTorrent clients together.
+  BitTorrent clients together for the shipped `0.7.3` Windows suite.
 
-Both eD2K/Kad cores implement the same `/api/v1` REST contract, and every client
-also exposes Torznab (indexer) and qBittorrent-compatible (download-client)
-surfaces, so Prowlarr and the Arr stack search and grab across both networks
-interchangeably. Data-plane traffic egresses a fail-closed VPN tunnel.
+The target architecture keeps clients behind automatable contracts while
+preserving native protocol behavior. Data-plane traffic is designed to egress a
+fail-closed VPN tunnel. The active implementation lane is Rust eD2K/Kad; the
+BitTorrent companion and future controller layers are staged after that.
 
 ```mermaid
 flowchart LR
@@ -86,11 +86,11 @@ flowchart LR
 
     subgraph Cores["eD2K / Kad cores — shared /api/v1"]
         direction TB
-        Cpp["eMuleBB<br/>C++ MFC desktop<br/>current flagship · 0.7.3"]
-        Rust["emulebb-rust<br/>headless · multiplatform<br/>forward core + Kad/eD2K indexer"]
+        Cpp["eMuleBB<br/>C++ MFC desktop<br/>frozen 0.7.x"]
+        Rust["emulebb-rust<br/>headless + native UI<br/>active forward client"]
     end
 
-    Qbbb["qBittorrentBB<br/>BitTorrent client<br/>DHT harvester + Torznab"]
+    Qbbb["qBittorrentBB<br/>BitTorrent client<br/>future companion"]
 
     Ed2k[("eD2K / Kad")]
     Bt[("BitTorrent<br/>DHT · swarms")]
@@ -113,10 +113,9 @@ flowchart LR
     style Qbbb fill:#cfe8ff,stroke:#1c6fb4
 ```
 
-This is the **target suite architecture**. Today, `/api/v1` is shared by the C++
-desktop and `emulebb-rust`, and the qBit `/api/v2` and Torznab adapters ship as
-C++ desktop surfaces; `emulebb-rust` indexing and the qBittorrentBB companion are
-the active forward tracks.
+This is the **target suite architecture**. Today, the stable public line is the
+MFC `0.7.3` Windows suite. Active forward work is `emulebb-rust` headless client
+stabilization and Rust-native UI. qBittorrentBB and TrackMuleBB are future work.
 
 ## Install Or Try eMuleBB
 
@@ -162,11 +161,11 @@ release manifests before installing.
 
 ## Future Direction
 
-There is still a roadmap and a set of ideas for future MFC evolution, but MFC
-`0.8.x` is a possibility rather than a certainty. The MFC client is valuable,
-but it is heavy to evolve cleanly, so current forward development is focused on
-`emulebb-rust` and `qBittorrentBB`. The Rust client is close to public beta after
-months of testing and is the likely home for larger eD2K/Kad evolution.
+MFC `0.7.3` is frozen except for critical maintenance and
+non-behavior-expanding diagnostics/instrumentation. Current forward development
+is focused on `emulebb-rust`: the headless client, protocol stability, safety
+gates, persistence, REST correctness, and Rust-native UI. qBittorrentBB remains
+future companion work; TrackMuleBB is parked until that companion work progresses.
 
 ## Stable Package Testing
 
@@ -189,7 +188,7 @@ for crashes, hangs, or memory-growth cases.
 | --- | --- | --- |
 | eMuleBB | `0.7.3` published as the current stable public release | [`download 0.7.3`](https://github.com/emulebb/emulebb/releases/tag/emulebb-v0.7.3) |
 | emulebb-rust | Multiplatform eD2K/Kad core in development; no release yet | [`source`](https://github.com/emulebb/emulebb-rust) |
-| qBittorrentBB | BitTorrent companion in development; no release yet | [`source`](https://github.com/emulebb/qbittorrentbb) |
+| qBittorrentBB | Future BitTorrent companion; no release yet | [`source`](https://github.com/emulebb/qbittorrentbb) |
 | aMule | Nightly Windows build track available | [`releases`](https://github.com/emulebb/amule/releases) / [`nightlies`](https://github.com/emulebb/amule/releases?q=nightly&expanded=true) |
 | aMuTorrent | Matching eMuleBB 0.7.3 controller package published | [`download 0.7.3`](https://github.com/emulebb/amutorrent/releases/tag/amutorrent-v3.8.8-emulebb-v0.7.3) |
 | MiniUPnP/miniupnpc | Windows `upnpc` package release available | [`releases`](https://github.com/emulebb/emulebb-miniupnp/releases) |
@@ -207,21 +206,20 @@ entry point to the suite and is maintained on the `0.7.x` line.
 ### emulebb-rust — the multiplatform forward core
 
 **emulebb-rust** is where the eD2K/Kad client is headed: a headless,
-multiplatform core that implements the same `/api/v1` contract as the desktop
-client and adds autonomous Kad/eD2K indexing exposed over Torznab. This is the
-strategic direction of the suite, not a side experiment. In development.
+multiplatform core plus Rust-native UI. This is the strategic direction of the
+suite, not a side experiment. In development.
 
 ### qBittorrentBB — the BitTorrent companion
 
-**qBittorrentBB** brings the suite onto BitTorrent: a full client with a DHT
-harvester, a local searchable index, and a Torznab endpoint, so discovery spans
-both networks. In development.
+**qBittorrentBB** is planned to bring the suite onto BitTorrent: a full client
+with a DHT harvester, a local searchable index, and a Torznab endpoint. Future
+work.
 
 ### aMuTorrent — the cross-network controller
 
-The **aMuTorrent fork** manages the eD2K and BitTorrent clients from one web UI
-and validates controller workflows. It keeps the native `/api/v1` contract as the
-source of truth and is an optional layer — the clients work standalone.
+The **aMuTorrent fork** ships with the frozen eMuleBB `0.7.3` Windows line and
+validates controller workflows for that release family. It is not the forward
+controller for new Rust work.
 
 ### Windows build tracks
 
@@ -281,10 +279,10 @@ BitTorrent usable, automatable, and honest on modern systems.
 
 **Clients and core**
 
-- [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) - multiplatform eD2K/Kad core + autonomous indexing (the forward core)
-- [`emulebb`](https://github.com/emulebb/emulebb) - eMuleBB Windows client (flagship; maintained on `0.7.x`)
-- [`qbittorrentbb`](https://github.com/emulebb/qbittorrentbb) - BitTorrent companion (DHT harvester + Torznab index)
-- [`amutorrent`](https://github.com/emulebb/amutorrent) - cross-network web-UI controller
+- [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) - multiplatform eD2K/Kad headless client + Rust-native UI (active forward core)
+- [`emulebb`](https://github.com/emulebb/emulebb) - eMuleBB Windows client (frozen `0.7.x` line)
+- [`qbittorrentbb`](https://github.com/emulebb/qbittorrentbb) - future BitTorrent companion
+- [`amutorrent`](https://github.com/emulebb/amutorrent) - `0.7.3` Windows-suite controller
 
 **Infrastructure**
 
