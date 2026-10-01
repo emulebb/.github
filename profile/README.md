@@ -57,7 +57,7 @@ qBittorrentBB and TrackMuleBB are future/parked suite work.
 | Networks | eD2K/Kad and the BitTorrent DHT — discovery without central servers or indexers |
 | Automation | Separate MFC and Rust `/api/v1` contracts; broader adapters/controllers are future suite work |
 | Windows build tracks | aMule and MiniUPnP/miniupnpc |
-| Lab | goed2k-server — a deterministic eD2K server for tests |
+| Service / lab | goed2k-server — deterministic test server; ed2k-server — build-integrated future candidate |
 
 ## How It Fits Together
 
@@ -228,6 +228,9 @@ the upstream reference checkout.
 ### Lab and adjacent work
 
 **goed2k-server** is a deterministic eD2K server used for tests and parity work.
+**ed2k-server** is our managed Rust index-server fork with Linux build, test,
+and candidate-artifact automation. It is a future test-server candidate, not an
+active harness or production service.
 **p2p-overlord** is a separate, server-oriented product line in the family — it
 can share contracts and infrastructure but is not part of the suite.
 
@@ -292,6 +295,7 @@ BitTorrent usable, automatable, and honest on modern systems.
 **Service / lab**
 
 - [`goed2k-server`](https://github.com/emulebb/goed2k-server) - deterministic eD2K server for tests and parity work
+- [`ed2k-server`](https://github.com/emulebb/ed2k-server) - managed Rust index-server fork and future test-server candidate; not yet used by the harness
 
 **Separate product family** (shares contracts/infrastructure, not part of the suite)
 
