@@ -17,6 +17,11 @@ local deltas only.
   application artwork, or other brand image assets unless explicitly approved.
 - Treat `emulebb-tooling` active/reference docs as the source of truth. The
   profile summarizes and links; it does not invent feature or release facts.
+- Treat `emulebb-tooling\manifests\public-presence.v1.json` as the source for
+  current lanes, repository roles, compatibility references, and public links.
+  Regenerate `profile\README.md` with
+  `python ..\emulebb-tooling\helpers\public-presence.py render-org-profile
+  --output profile\README.md`; do not hand-edit generated profile content.
 - Only shipped, landed, passed, or release-proven features belong in the public
   profile copy. Keep version and release references in step with the current
   release docs (e.g. the active 0.7.3 RC train).
