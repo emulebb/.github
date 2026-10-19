@@ -24,7 +24,7 @@ local deltas only.
   --output profile\README.md`; do not hand-edit generated profile content.
 - Only shipped, landed, passed, or release-proven features belong in the public
   profile copy. Keep version and release references in step with the current
-  release docs (e.g. the active 0.7.3 RC train).
+  release docs, including stable `0.7.3` and any future active release train.
 - Keep English canonical.
 - Preserve technical terms such as `eD2K`, `Kad`, `REST`, `JSON`, `API`, `VPN`,
   `UPnP/NAT`, `x64`, `ARM64`, repo names, file paths, URLs, and code identifiers.
