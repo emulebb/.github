@@ -1,0 +1,46 @@
+name: Public Presence
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate organization profile
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+    steps:
+      - name: Checkout organization profile
+        uses: actions/checkout@v7
+
+      - name: Checkout public-presence authority
+        uses: actions/checkout@v7
+        with:
+          repository: emulebb/emulebb-tooling
+          path: .local/emulebb-tooling
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+
+      - name: Validate contract and generated profile
+        run: |
+          python .local/emulebb-tooling/helpers/public-presence.py validate
+          python .local/emulebb-tooling/helpers/public-presence.py check-org-profile --input profile/README.md
+
+      - name: Validate documentation links
+        run: |
+          python .local/emulebb-tooling/helpers/check-tooling-doclinks.py \
+            --docs-root .local/emulebb-tooling/docs \
+            profile/README.md
