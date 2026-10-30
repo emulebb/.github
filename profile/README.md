@@ -5,7 +5,18 @@
 [![MFC baseline](https://github.com/emulebb/emulebb/actions/workflows/baseline.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb/actions/workflows/baseline.yml)
 [![Docs](https://github.com/emulebb/emulebb-tooling/actions/workflows/docs-site.yml/badge.svg?branch=main)](https://github.com/emulebb/emulebb-tooling/actions/workflows/docs-site.yml)
 
-A small eD2K/Kad workshop with an active Rust beta and a stable Windows maintenance lane.
+eMuleBB Rust is the active eD2K/Kad beta, backed by a maintained Windows client and focused protocol tooling.
+
+## eMuleBB Rust
+
+**Active beta — public 0.1.0-beta.2, working toward Beta 3.**
+
+Repeatedly tested on live eD2K/Kad networks.
+
+- [Download CI-gated nightly builds](https://github.com/emulebb/emulebb-rust/releases)
+- [Download the formal 0.1.0-beta.2 release](https://github.com/emulebb/emulebb-rust/releases/tag/rust-v0.1.0-beta.2)
+- [Read the eMuleBB Rust product docs](https://emulebb.github.io/emulebb-tooling/products/emulebb-rust/)
+- [Report eMuleBB Rust issues](https://github.com/emulebb/emulebb-rust/issues)
 
 ## Client Lanes
 
@@ -13,7 +24,7 @@ A small eD2K/Kad workshop with an active Rust beta and a stable Windows maintena
   [Contributions are welcome.](https://github.com/emulebb/emulebb-rust/blob/main/CONTRIBUTING.md)
 - **[emulebb](https://github.com/emulebb/emulebb) — Stable maintenance.** Version 0.7.3 remains published while the 0.7.x line provides diagnostics, critical fixes, and bounded maintenance.
 
-Rust is the active product-development lane. The MFC client remains the stable diagnostic baseline and may receive critical fixes and bounded, low-risk maintenance.
+eMuleBB Rust is the active product-development lane. The MFC client remains the stable Windows diagnostic baseline and may receive critical fixes and bounded, low-risk maintenance.
 
 ## Repository Status
 
@@ -22,7 +33,7 @@ Rust is the active product-development lane. The MFC client remains the stable d
 | [`emulebb-rust`](https://github.com/emulebb/emulebb-rust) | Active Rust beta and current product-development lane. |
 | [`emulebb`](https://github.com/emulebb/emulebb) | Stable 0.7.x Windows client, diagnostic baseline, and critical-fix maintenance lane. |
 | [`ed2k-server`](https://github.com/emulebb/ed2k-server) | Sole local deterministic eD2K server, maintained as a minimal upstream-aligned Rust fork. |
-| [`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests) | Shared MFC diagnostics, compatibility, live-network, and parity harness. |
+| [`emulebb-build-tests`](https://github.com/emulebb/emulebb-build-tests) | Shared Rust and MFC diagnostics, compatibility, live-network, and parity harness. |
 | [`emulebb-build`](https://github.com/emulebb/emulebb-build) | Workspace, build, validation, packaging, and release orchestration. |
 | [`emulebb-tooling`](https://github.com/emulebb/emulebb-tooling) | Public roadmap, lifecycle policy, product docs, and engineering references. |
 
