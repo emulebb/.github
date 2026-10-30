@@ -9,12 +9,13 @@ eMuleBB Rust is the active eD2K/Kad beta, backed by a maintained Windows client 
 
 ## eMuleBB Rust
 
-**Active beta — public 0.1.0-beta.2, working toward Beta 3.**
+**Active beta.**
 
 Repeatedly tested on live eD2K/Kad networks.
 
-- [Download CI-gated nightly builds](https://github.com/emulebb/emulebb-rust/releases)
-- [Download the formal 0.1.0-beta.2 release](https://github.com/emulebb/emulebb-rust/releases/tag/rust-v0.1.0-beta.2)
+Beta 3 is expected after a few more weeks of implementation and stabilization.
+
+- [Choose the newest dated nightly build](https://github.com/emulebb/emulebb-rust/releases)
 - [Read the eMuleBB Rust product docs](https://emulebb.github.io/emulebb-tooling/products/emulebb-rust/)
 - [Report eMuleBB Rust issues](https://github.com/emulebb/emulebb-rust/issues)
 
