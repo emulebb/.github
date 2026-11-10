@@ -13,8 +13,10 @@ local deltas only.
 
 ## Hard Rules
 
-- The org profile is **text-first**. Do not add screenshots, mascot art, copied
-  application artwork, or other brand image assets unless explicitly approved.
+- The org profile is **text-first**, with the operator-approved proposal-1 Rust
+  donkey identity image as its only in-page artwork. Use the shared contract's
+  reviewed asset origin, explicit dimensions and descriptive alt text. Do not
+  regenerate the image or add screenshots and unrelated artwork.
 - Treat `emulebb-tooling` active/reference docs as the source of truth. The
   profile summarizes and links; it does not invent feature or release facts.
 - Treat `emulebb-tooling\manifests\public-presence.v1.json` as the source for

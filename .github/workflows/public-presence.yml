@@ -15,32 +15,41 @@ permissions:
 jobs:
   validate:
     name: Validate organization profile
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: repos/emulebb-org-profile
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
     steps:
       - name: Checkout organization profile
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          path: repos/emulebb-org-profile
+          persist-credentials: false
 
       - name: Checkout public-presence authority
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           repository: emulebb/emulebb-tooling
-          path: .local/emulebb-tooling
+          ref: 027dcf32aab5ed2d1e3441b6231e8e500cc2e945
+          path: repos/emulebb-tooling
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
         with:
-          python-version: '3.x'
+          python-version: '3.15.2'
 
       - name: Validate contract and generated profile
         run: |
-          python .local/emulebb-tooling/helpers/public-presence.py validate
-          python .local/emulebb-tooling/helpers/public-presence.py check-org-profile --input profile/README.md
+          python -B ../emulebb-tooling/helpers/public-presence.py validate
+          python -B ../emulebb-tooling/helpers/public-presence.py check-org-profile --input profile/README.md
 
       - name: Validate documentation links
         run: |
-          python .local/emulebb-tooling/helpers/check-tooling-doclinks.py \
-            --docs-root .local/emulebb-tooling/docs \
+          python -B ../emulebb-tooling/helpers/check-tooling-doclinks.py \
+            --docs-root ../emulebb-tooling/docs \
             profile/README.md
