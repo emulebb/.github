@@ -49,7 +49,7 @@ eMuleBB Rust is the active product-development lane. The MFC client remains the 
 
 - [`emulebb`](https://github.com/emulebb/emulebb): Stable 0.7.x Windows client, diagnostic baseline, and critical-fix maintenance lane.
 - [`ed2k-server`](https://github.com/emulebb/ed2k-server): Sole local deterministic eD2K server, maintained as a minimal upstream-aligned Rust fork.
-- [aMule upstream](https://github.com/amule-org/amule) (`master`): Actively developed upstream client used as the moving interoperability and parity reference.
+- [aMule upstream](https://github.com/amule-org/amule) (`master`): Actively developed upstream client used for analysis and future interoperability.
 - [eMule stock 0.72](https://github.com/irwir/eMule) (`v0.72a`): Stock compatibility baseline for protocol and state-machine parity.
 
 </details>
