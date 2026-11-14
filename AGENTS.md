@@ -13,7 +13,7 @@ local deltas only.
 
 ## Hard Rules
 
-- The org profile is **text-first**, with the operator-approved proposal-1 Rust
+- The org profile is **text-first**, with the operator-approved proposal-5 Rust
   donkey identity image as its only in-page artwork. Use the shared contract's
   reviewed asset origin, explicit dimensions and descriptive alt text. Do not
   regenerate the image or add screenshots and unrelated artwork.
