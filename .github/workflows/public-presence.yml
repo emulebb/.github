@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           repository: emulebb/emulebb-tooling
-          ref: 027dcf32aab5ed2d1e3441b6231e8e500cc2e945
+          ref: efe57c9408953c61a2dda4373d6c006ce688fadd
           path: repos/emulebb-tooling
           persist-credentials: false
 
